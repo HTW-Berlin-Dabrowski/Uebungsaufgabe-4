@@ -1,0 +1,60 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Aufgabe 1
+      id: aufgabe-1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Aufgabe 1
+        setup-command: ''
+        command: gradle test --tests MIDIToolsTest
+        timeout: 3
+        max-score: 2
+    - name: Aufgabe 2
+      id: aufgabe-2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Aufgabe 2
+        setup-command: ''
+        command: gradle test --tests NoteTest
+        timeout: 3
+        max-score: 4
+    - name: Aufgabe 3
+      id: aufgabe-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Aufgabe 3
+        setup-command: ''
+        command: gradle test --tests MIDITrackTest
+        timeout: 3
+        max-score: 2
+    - name: Aufgabe 4
+      id: aufgabe-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Aufgabe 4
+        setup-command: ''
+        command: gradle test --tests MIDIFileTest
+        timeout: 3
+        max-score: 2
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        AUFGABE-1_RESULTS: "${{steps.aufgabe-1.outputs.result}}"
+        AUFGABE-2_RESULTS: "${{steps.aufgabe-2.outputs.result}}"
+        AUFGABE-3_RESULTS: "${{steps.aufgabe-3.outputs.result}}"
+        AUFGABE-4_RESULTS: "${{steps.aufgabe-4.outputs.result}}"
+      with:
+        runners: aufgabe-1,aufgabe-2,aufgabe-3,aufgabe-4
