@@ -27,18 +27,19 @@ Nennen Sie die Methoden `checkCategory(String category)`, `checkPrepTime(int tim
 Falls eine ungültige Kategorie / Zubereitungszeit / Bewertung gesetzt wird, wird auf der Konsole ausgegeben "Eingabe ungültig" und das Feld wird nicht gesetzt.
 
 # Aufgabe 4
-Fügen Sie zur Klasse eine Array Liste für die Zutaten hinzu. Schreiben Sie eine Methode, mit der man Zutaten zur Liste hinzufügen kann und eine Methode, mit der man Zutaten aus dem Array entfernen kann. 
-Prüfen Sie beim Hinzufügen, dass die Zutat noch nicht in der Liste ist und beim Entfernen, dass Sie eine vorhandene Zutat löschen. Sollte das nicht der Fall sein, geben Sie auf der Konsole die Meldung "Hinzufügen / Löschen fehlgeschlagen" aus und fügen Sie die Zutat nicht hinzu.
+Fügen Sie zur Klasse ein Array für die Zutaten hinzu (die Länge des Arrays sollte 5 sein). Schreiben Sie eine Methode, mit der man Zutaten zur Liste hinzufügen kann: `public boolean addIngredient(String ingredient)` und eine Methode, mit der man Zutaten aus dem Array entfernen kann: `public boolean removeIngredient(String ingredient)`. 
+
+Prüfen Sie beim Hinzufügen, ob noch ein Platz im Array frei ist und, dass die Zutat noch nicht im Array ist und beim Entfernen, dass Sie eine vorhandene Zutat löschen. Sollte das nicht der Fall sein, geben Sie auf der Konsole die Meldung "Hinzufügen fehlgeschlagen", bzw "Löschen fehlgeschlagen" aus und fügen Sie die Zutat nicht hinzu.
 
 # Aufgabe 5
-Erstellen Sie eine zweite Klasse `RecipeBook`, in der Sie eine Array Liste mit Rezepten speichern. Die Klasse hat eine Methode zum Hinzufügen und Löschen von Rezepten. Prüfen Sie auch hier wieder, ob das Rezept schon in der Liste vorhanden ist, bevor Sie es hinzufügen / löschen. Außerdem hat die Klasse einen Getter, der die Namen der Rezepte in der Liste zurückgibt. 
+Erstellen Sie eine zweite Klasse `RecipeBook`, in der Sie ein Array mit Rezepten speichern. Die Klasse hat eine Methode zum Hinzufügen und Löschen von Rezepten. Prüfen Sie auch hier wieder, ob das Rezept schon in der Liste vorhanden ist, bevor Sie es hinzufügen / löschen. Außerdem hat die Klasse einen Getter, der die Namen der Rezepte in der Liste zurückgibt. Falls das Array voll ist, erstellen Sie ein neues und kopieren alle bereits vorhandenen Rezepte hier rein.
 
 # Aufgabe 6
 Fügen Sie in der Klasse `RecipeBook` eine Methode hinzu, die Rezepte einer Kategorie in ein Array speichert und das Array zurückgibt. 
 
 # Aufgabe 7
 Fügen Sie in der Klasse `RecipeBook` zwei Methoden zum Printen hinzu:
-1. Eine Funktion, die alle Rezepte in der Array Liste printed.
+1. Eine Funktion, die alle Rezepte in des Arrays printed.
 2. Eine Funktion, die die Rezepte einer Kategorie printed.
 
 Dabei soll für jedes Rezept ausgegeben werden:
