@@ -8,13 +8,13 @@ public class Recipe {
     private int rating;
 
     private String[] validCategories = {"omnivor", "vegetarisch", "vegan"};
-    private ArrayList<String> ingredients;
+    private String[] ingredients;
 
     Recipe(String name, int prepTime, int rating) {
         this.name = name;
         this.prepTime = prepTime;
         this.rating = rating;
-        this.ingredients = new ArrayList<>();
+        this.ingredients = new String[5];
     }
 
     Recipe(String name, int prepTime) {
@@ -84,25 +84,42 @@ public class Recipe {
     }
 
     public boolean addIngredient(String ingredient) {
-        if (!ingredients.contains(ingredient)) {
-            ingredients.add(ingredient);
-            System.out.println("Zutat " + ingredient + " hinzugefügt.");
-            return true;
-        } else {
+        if (containsIngredient(ingredient)) {
             System.out.println("Hinzufügen fehlgeschlagen: Zutat " + ingredient + " ist bereits vorhanden.");
             return false;
         }
+        for (int i = 0; i < ingredients.length; i++) {
+            if (ingredients[i] == null) {
+                ingredients[i] = ingredient;
+                System.out.println("Zutat " + ingredient + " hinzugefügt.");
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean removeIngredient(String ingredient) {
-        if (ingredients.contains(ingredient)) {
-            ingredients.remove(ingredient);
-            System.out.println("Zutat " + ingredient + " entfernt.");
-            return true;
-        } else {
+        if (!containsIngredient(ingredient)) {
             System.out.println("Löschen fehlgeschlagen: Zutat " + ingredient + " ist nicht vorhanden.");
             return false;
         }
+        for (int i = 0; i < ingredients.length; i++) {
+            if (ingredients[i].equals(ingredient)) {
+                ingredients[i] = null;
+                System.out.println("Zutat " + ingredient + " entfernt.");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean containsIngredient(String ingredient) {
+        for (int i = 0; i < ingredients.length; i++) {
+            if (ingredients[i] != null && ingredients[i].equals(ingredient)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

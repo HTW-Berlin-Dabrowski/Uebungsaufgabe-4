@@ -4,11 +4,15 @@ public class RecipeBook {
 
     private Recipe[] recipes;
     private int count;
-    private int capacity = 5;
+    private int capacity = 2;
 
     public RecipeBook() {
         recipes = new Recipe[capacity];
         count = 0;
+    }
+
+    public Recipe[] getRecipes() {
+        return this.recipes;
     }
 
     public boolean addRecipe(Recipe recipe) {
@@ -48,11 +52,54 @@ public class RecipeBook {
 
     private boolean containsRecipe(String recipeName) {
         for (Recipe r : recipes) {
-            if (r.getName().equals(recipeName)) {
+            if (r != null && r.getName().equals(recipeName)) {
                 return true;
             }
         }
         return false;
     }
+
+    public Recipe[] recipeyByCatecory(String category) {
+        Recipe[] categoryRecipes = new Recipe[countRecipes(category)];
+        int count = 0;
+
+        for (int i = 0; i < recipes.length; i++) {
+            if (recipes[i].getCategory() != null && recipes[i].getCategory().equals(category)) {
+                categoryRecipes[count] = recipes[i];
+            }
+        }
+        return categoryRecipes;
+    }
+
+    private int countRecipes(String category) {
+        int count = 0;
+        for (int i = 0; i < recipes.length; i++) {
+            if (recipes[i] != null && recipes[i].getCategory().equals(category)) {
+                count ++;
+            }
+        }
+        return count;
+    }
+
+    private void printRecipes(Recipe[] recipesToPrint) {
+        String result = "";
+        for (Recipe rec : recipesToPrint) {
+            result += "Name: " + rec.getName() + ", Zubereitungszeit: " + rec.getPrepTime();
+            if (rec.getCategory() != null) result += ", Kategorie: " +  rec.getCategory();
+            if (rec.getRating() != 0) result += ", Bewertung: " +  rec.getRating();
+            result += "\n";
+        }
+        System.out.print(result);
+    }
+
+    public void printByCategory(String category) {
+        Recipe[] recipesToPrint = recipeyByCatecory(category);
+        printRecipes(recipesToPrint);
+    }
+
+    public void printAllRecipes() {
+        printRecipes(this.recipes);
+    }
+
 
 }
