@@ -68,4 +68,23 @@ public class RecipeTest {
          assertNull(pankace.getCategory());
     }
 
+    @Test
+    void testAddIngredient() {
+        boolean returnsTrue = pankace.addIngredient("Apfel");
+        boolean returnsFalse = !pankace.addIngredient("Apfel");
+        assertTrue(returnsTrue && returnsFalse);
+        assertEquals("Zutat Apfel hinzugefügt." + System.lineSeparator() +
+                "Hinzufügen fehlgeschlagen: Zutat Apfel ist bereits vorhanden." + System.lineSeparator(), outContent.toString());
+    }
+
+    @Test
+    void testRemoveIngredient() {
+        pankace.addIngredient("Apfel");
+        outContent.reset();
+        boolean returnTrue = pankace.removeIngredient("Apfel");
+        boolean returnFalse = !pankace.removeIngredient("Apfel");
+        assertTrue(returnTrue && returnFalse);
+        assertEquals("Zutat Apfel entfernt." + System.lineSeparator() +
+                "Löschen fehlgeschlagen: Zutat Apfel ist nicht vorhanden." + System.lineSeparator(), outContent.toString());
+    }
 }
