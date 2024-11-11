@@ -63,9 +63,8 @@ public class RecipeTest {
     void setCategoryTest() {
          curry.setCategory("omnivor");
          assertEquals("omnivor", curry.getCategory());
-         pankace.setCategory("Sweet");
+         pankace.setCategory("sweet");
          assertEquals("Eingabe ungültig"+System.lineSeparator(), outContent.toString());
          assertNull(pankace.getCategory());
     }
-
 }
