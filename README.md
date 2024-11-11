@@ -31,14 +31,15 @@ Fügen Sie zur Klasse ein Array für die Zutaten hinzu (die Länge des Arrays so
 
 Prüfen Sie beim Hinzufügen, ob noch ein Platz im Array frei ist und, dass die Zutat noch nicht im Array ist und beim Entfernen, dass Sie eine vorhandene Zutat löschen. Sollte das nicht der Fall sein, geben Sie auf der Konsole die Meldung "Hinzufügen fehlgeschlagen", bzw "Löschen fehlgeschlagen" aus und fügen Sie die Zutat nicht hinzu.
 
-# Aufgabe 5
-Erstellen Sie eine zweite Klasse `RecipeBook`, in der Sie ein Array mit Rezepten (also aus Objekten der Klasse Recipe) speichern. Die initiale Kapazität des Arrays soll 5 sein. 
-Die Klasse hat eine Methode zum Hinzufügen und Löschen von Rezepten `public boolean addRecipe(Recipe recipe)` und `public boolean removeRecipe(Recipe recipe)`. Prüfen Sie auch hier wieder, ob das Rezept schon in der Liste vorhanden ist, bevor Sie es hinzufügen / löschen (überprüfen Sie das anhand des Namens des Rezepts). Falls das Array voll ist, erstellen Sie ein neues und kopieren alle bereits vorhandenen Rezepte hier rein.
-Außerdem hat die Klasse einen Getter, der die Namen der Rezepte im Array als String zurückgibt. 
+Hinweis: Zum Löschen einer Zutat, setzen Sie das Element auf null.
 
+# Aufgabe 5
+Erstellen Sie eine zweite Klasse `RecipeBook`, in der Sie ein Array mit Rezepten (also aus Objekten der Klasse Recipe) speichern. Die initiale Kapazität des Arrays soll 2 sein. 
+
+Die Klasse hat eine Methode zum Hinzufügen und Löschen von Rezepten `public boolean addRecipe(Recipe recipe)` und `public boolean removeRecipe(Recipe recipe)`. Prüfen Sie auch hier wieder, ob das Rezept schon in der Liste vorhanden ist, bevor Sie es hinzufügen / löschen (überprüfen Sie das anhand des Namens des Rezepts). Falls das Array voll ist, erstellen Sie ein neues und kopieren alle bereits vorhandenen Rezepte hier rein.
 
 # Aufgabe 6
-Fügen Sie in der Klasse `RecipeBook` eine Methode hinzu, die Rezepte einer Kategorie in ein Array speichert und das Array zurückgibt. 
+Fügen Sie in der Klasse `RecipeBook` eine Methode `public Recipe[] recipeyByCatecory(String category)` hinzu, die Rezepte einer Kategorie in ein Array speichert und das Array zurückgibt. 
 
 # Aufgabe 7
 Fügen Sie in der Klasse `RecipeBook` zwei Methoden zum Printen hinzu:
@@ -48,7 +49,12 @@ Fügen Sie in der Klasse `RecipeBook` zwei Methoden zum Printen hinzu:
 Dabei soll für jedes Rezept ausgegeben werden:
 - Name
 - Zubereitungszeit
-- Kategorie
+- Kategorie (wenn gesetzt)
 - Bewertung (wenn gesetzt)
 
-Falls es keine Bewertung gibt, soll das Programm nicht abstürzen. 
+Falls es keine Kategorie / Bewertung gibt, soll das Programm nicht abstürzen. 
+Beispielausgabe:
+`
+Name: Pfannkuchen, Zubereitungszeit: 10, Kategorie: vegetarisch, Bewertung: 4
+Name: Curry, Zubereitungszeit: 20
+`
