@@ -27,7 +27,7 @@ Nennen Sie die Methoden `checkCategory(String category)`, `checkPrepTime(int tim
 Falls eine ungültige Kategorie / Zubereitungszeit / Bewertung gesetzt wird, wird auf der Konsole ausgegeben "Eingabe ungültig" und das Feld wird nicht gesetzt.
 
 # Aufgabe 4
-Fügen Sie zur Klasse ein Array für die Zutaten hinzu (die Länge des Arrays sollte 5 sein). Schreiben Sie eine Methode, mit der man Zutaten zur Liste hinzufügen kann: `public boolean addIngredient(String ingredient)` und eine Methode, mit der man Zutaten aus dem Array entfernen kann: `public boolean removeIngredient(String ingredient)`. 
+Fügen Sie zur Klasse ein Array für die Zutaten hinzu (die Länge des Arrays sollte 5 sein). Schreiben Sie eine Methode, mit der man Zutaten zum Array hinzufügen kann: `public boolean addIngredient(String ingredient)` und eine Methode, mit der man Zutaten aus dem Array entfernen kann: `public boolean removeIngredient(String ingredient)`. 
 
 Prüfen Sie beim Hinzufügen, ob noch ein Platz im Array frei ist und, dass die Zutat noch nicht im Array ist und beim Entfernen, dass Sie eine vorhandene Zutat löschen. Sollte das nicht der Fall sein, geben Sie auf der Konsole die Meldung "Hinzufügen fehlgeschlagen", bzw "Löschen fehlgeschlagen" aus und fügen Sie die Zutat nicht hinzu.
 
